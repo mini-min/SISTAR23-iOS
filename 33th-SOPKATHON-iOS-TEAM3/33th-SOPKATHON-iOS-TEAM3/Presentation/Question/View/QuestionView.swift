@@ -96,7 +96,6 @@ final class QuestionView: UIView, UIGestureRecognizerDelegate {
         setUI()
         setHierarchy()
         setLayout()
-        setAddTarget()
         setRegisterCell()
     }
     
@@ -145,7 +144,7 @@ extension QuestionView {
             $0.width.equalTo(343)
             $0.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(answerContainerView.snp.bottom).offset(44)
-    
+            
         }
         
         questionLabel.snp.makeConstraints() {
