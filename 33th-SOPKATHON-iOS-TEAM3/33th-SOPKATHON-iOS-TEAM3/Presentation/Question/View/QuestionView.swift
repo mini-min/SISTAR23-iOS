@@ -26,7 +26,7 @@ final class QuestionView: UIView, UIGestureRecognizerDelegate {
     
     private let iconImageView: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleAspectFit
         image.image = UIImage(named: "question_ico")
         return image
     }()
@@ -74,9 +74,10 @@ final class QuestionView: UIView, UIGestureRecognizerDelegate {
     
     public let questionLabel: UILabel = {
         let label = UILabel()
-        label.font = .caption2
+        label.font = .caption3
         label.textColor = .grey6
         label.numberOfLines = 2
+        label.textAlignment = .center
         return label
     }()
     
@@ -126,25 +127,22 @@ extension QuestionView {
     
     func setLayout() {
         questionContainerView.snp.makeConstraints() {
-            $0.height.equalTo(68)
-            $0.width.equalTo(251)
-            $0.trailing.equalToSuperview().inset(19)
+            $0.height.equalTo(51)
+            $0.leading.equalToSuperview().inset(105)
+            $0.trailing.equalToSuperview().inset(48)
             $0.top.equalToSuperview().offset(136)
         }
         
         answerContainerView.snp.makeConstraints() {
             $0.height.equalTo(168)
-            $0.width.equalTo(335)
-            $0.trailing.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.top.equalTo(questionContainerView.snp.bottom).offset(41)
         }
         
         saveButton.snp.makeConstraints() {
             $0.height.equalTo(50)
-            $0.width.equalTo(343)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(answerContainerView.snp.bottom).offset(44)
-            
         }
         
         questionLabel.snp.makeConstraints() {
@@ -161,21 +159,19 @@ extension QuestionView {
         }
         
         leftBubbleimageView.snp.makeConstraints() {
-            $0.leading.equalToSuperview().inset(152)
+            $0.leading.equalToSuperview().inset(100)
             $0.top.equalTo(questionContainerView.snp.bottom).offset(8)
-            $0.height.equalTo(22)
-            $0.width.equalTo(22)
+            $0.size.equalTo(22)
         }
         
         rightBubbleimageView.snp.makeConstraints() {
-            $0.trailing.equalToSuperview().inset(19)
+            $0.trailing.equalToSuperview().inset(31)
             $0.top.equalTo(answerContainerView.snp.bottom).offset(8)
-            $0.height.equalTo(22)
-            $0.width.equalTo(22)
+            $0.size.equalTo(22)
         }
         
         iconImageView.snp.makeConstraints() {
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().offset(-32)
             $0.top.equalToSuperview().offset(86)
             $0.height.equalTo(195)
             $0.width.equalTo(195)
